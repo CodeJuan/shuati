@@ -1,18 +1,14 @@
 package Palindrome
 
-import (
-	"strconv"
-	"strings"
-)
-
 func isPalindrome(x int) bool {
-	s := strconv.Itoa(x)
-	s2 := ""
-	for _, v := range s{
-		s2 = string(v) + s2
+	if x < 0 {
+		return false
 	}
-	if strings.Compare(s ,s2) == 0 {
-		return true
+
+	y := 0
+	for i := x; i > 0; {
+		y = y*10 + i%10
+		i = i / 10
 	}
-	return false
+	return y == x
 }
